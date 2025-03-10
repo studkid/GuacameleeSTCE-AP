@@ -1,12 +1,11 @@
 ﻿[
   {
-    "Name": "Location 1",
+    "Name": "Pb: Chest On Top of Church",
     "Id": 123456,
     "Address": "0x12345678",
-    "CheckType": "Int",
-    "CheckValue": 0,
-    "CompareType": "GreaterThan",
-    "Category": "Key Item"
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "Health Chest"
   },
   {
     "Name": "Location 2",
