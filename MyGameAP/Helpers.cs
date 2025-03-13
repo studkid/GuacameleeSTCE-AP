@@ -1,16 +1,18 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using GuacameleeAP.Models;
+using Newtonsoft.Json;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MyGameAP {
     public class Helpers {
         public static List<Archipelago.Core.Models.Location> GetLocations() {
             var json = OpenEmbeddedResource("GuacameleeAP.Resources.Locations.json");
             var list = JsonConvert.DeserializeObject<List<Archipelago.Core.Models.Location>>(json);
+            return list;
+        }
+
+        public static List<GuacameleeItem> GetItems() {
+            var json = OpenEmbeddedResource("GuacameleeAP.Resources.Items.json");
+            var list = JsonConvert.DeserializeObject<List<GuacameleeItem>>(json);
             return list;
         }
 

@@ -2,17 +2,9 @@
   {
     "Name": "Pb: Chest On Top of Church",
     "Id": 123456,
-    "Address": "0x12345678",
+    "Address": "0x0E822F7F",
     "CheckType": "Bit",
     "AddressBit": 0,
     "Category": "Health Chest"
-  },
-  {
-    "Name": "Location 2",
-    "Id": 123456,
-    "Address": "0x12345678",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Key Item"
   }
 ]

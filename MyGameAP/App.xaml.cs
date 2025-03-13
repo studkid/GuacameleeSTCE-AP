@@ -6,6 +6,7 @@ using Archipelago.Core.Models;
 using Archipelago.Core.Util;
 using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
 using Archipelago.MultiClient.Net.MessageLog.Messages;
+using GuacameleeAP.Models;
 using Newtonsoft.Json;
 using Serilog;
 
@@ -15,6 +16,7 @@ namespace MyGameAP {
         public static ArchipelagoClient Client { get; set; }
         private DeathLinkService _deathlinkService;
         private static readonly object _lockObject = new object();
+        private static List<GuacameleeItem> guacameleeItems { get; set; }
 
         public App() {
             InitializeComponent();
@@ -61,7 +63,7 @@ namespace MyGameAP {
             Client.ItemReceived += Client_ItemReceived;
             Client.MessageReceived += Client_MessageReceived;
 
-            await Client.Login(e.Slot, !string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
+            await Client.Login(e.Slot,!string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
 
             //if (Client.Options.ContainsKey("EnableDeathlink") && (bool)Client.Options["EnableDeathlink"]) {
             //    var _deathlinkService = Client.EnableDeathLink();
@@ -70,6 +72,7 @@ namespace MyGameAP {
             //}
 
             var myLocations = Helpers.GetLocations();
+            guacameleeItems = Helpers.GetItems();
 
             //var goalLocation = myLocations.First(x => x.Name.Contains("GoalLocationName"));
             //Memory.MonitorAddressBitForAction(goalLocation.Address, goalLocation.AddressBit, () => Client.SendGoalCompletion());
@@ -77,6 +80,8 @@ namespace MyGameAP {
             Client.MonitorLocations(myLocations);
 
             Context.ConnectButtonEnabled = true;
+
+            Memory.WriteBit(0x00911654, 4, true);
         }
 
         private void _deathlinkService_OnDeathLinkReceived(DeathLink deathLink) {
@@ -86,7 +91,19 @@ namespace MyGameAP {
         private static void Client_ItemReceived(object? sender, ItemReceivedEventArgs e) {
             LogItem(e.Item);
             var itemId = e.Item.Id;
-            // Todo Give the player the item
+            var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == itemId);
+            if(itemToReceive != null) {
+                Log.Logger.Verbose($"Received {itemToReceive.Name} ({itemToReceive.Id})");
+                AddItem(itemToReceive.Name, itemToReceive.Address, itemToReceive.AddressBit);
+            }
+        }
+
+        private static void AddItem(string name, ulong address, int bit) {
+            if(name == "Pollo Power") {
+                Memory.WriteBit(0x10A9141B, 0, true);
+            }
+
+            Memory.WriteBit(address, bit, true);
         }
 
         private void Client_MessageReceived(object? sender, Archipelago.Core.Models.MessageReceivedEventArgs e) {
