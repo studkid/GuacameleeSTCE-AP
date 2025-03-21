@@ -58,7 +58,7 @@ namespace MyGameAP {
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
 
-            await Client.Connect(e.Host, "Clique");
+            await Client.Connect(e.Host,"Guacamelee Super Turbo Champioship Edition");
 
             Client.ItemReceived += Client_ItemReceived;
             Client.MessageReceived += Client_MessageReceived;
