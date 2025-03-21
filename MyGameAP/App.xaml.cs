@@ -17,6 +17,9 @@ namespace MyGameAP {
         private DeathLinkService _deathlinkService;
         private static readonly object _lockObject = new object();
         private static List<GuacameleeItem> guacameleeItems { get; set; }
+        private static int healthChunks = 0;
+        private static int staminaChunks = 0;
+        private static int intensoChunks = 0;
 
         public App() {
             InitializeComponent();
@@ -81,6 +84,13 @@ namespace MyGameAP {
 
             Context.ConnectButtonEnabled = true;
 
+            foreach(Item item in Client.GameState.ReceivedItems) {
+                var itemToAdd = guacameleeItems[(int)item.Id - 1];
+                if(itemToAdd.Name != "500 Gold Coin" || itemToAdd.Name != "5000 Gold Coins" || itemToAdd.Name != "5 Silver Coins") {
+                    AddItem(itemToAdd.Name, itemToAdd.Address, itemToAdd.AddressBit, item.Quantity);
+                }
+            }
+
             Memory.WriteBit(0x00911654, 4, true);
         }
 
@@ -98,9 +108,36 @@ namespace MyGameAP {
             }
         }
 
-        private static void AddItem(string name, ulong address, int bit) {
+        private static void AddItem(string name, ulong address, int bit, int quantity = 1) {
             if(name == "Pollo Power") {
                 Memory.WriteBit(0x10A9141B, 0, true);
+            }
+            if(name == "Health Chunk") {
+                healthChunks += quantity;
+                var curHealth = Memory.ReadFloat(address);
+                float addHealth = 20 * (float)Math.Floor((double)healthChunks / 3);
+                Memory.Write(address, curHealth + addHealth);
+                Log.Logger.Information($"Health Chunk {healthChunks % 3} / 3 (Total {healthChunks})");
+                Log.Logger.Verbose($"New Health {curHealth + addHealth}");
+                return;
+            }
+            if(name == "Stamina Chunk") {
+                staminaChunks += quantity;
+                var curStamina = Memory.ReadFloat(address);
+                float addStamina = (float)Math.Floor((double)staminaChunks / 3);
+                Memory.Write(address,curStamina + addStamina); 
+                Log.Logger.Information($"Stamina Chunk {staminaChunks % 3} / 3 (Total {staminaChunks})");
+                Log.Logger.Verbose($"New Stamina {curStamina + addStamina}");
+                return;
+            }
+            if(name == "Intenso Chunk") {
+                intensoChunks += quantity;
+                var curIntenso = Memory.ReadFloat(address);
+                float addIntenso = 10 * (float)Math.Floor((double)intensoChunks / 3);
+                Memory.Write(address,curIntenso + addIntenso);
+                Log.Logger.Information($"Intenso Chunk {intensoChunks % 3} / 3 (Total {intensoChunks})");
+                Log.Logger.Verbose($"New Intenso {curIntenso + addIntenso}");
+                return;
             }
 
             Memory.WriteBit(address, bit, true);

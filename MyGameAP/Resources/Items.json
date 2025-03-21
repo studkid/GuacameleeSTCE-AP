@@ -76,5 +76,47 @@
     "Id": 13,
     "Address": "0",
     "AddressBit": 0
+  },
+  {
+    "Name": "Health Chunk",
+    "Id": 14,
+    "Address": "0x200BC728",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Stamina Chunk",
+    "Id": 15,
+    "Address": "0x26183C20",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Intenso Chunk",
+    "Id": 16,
+    "Address": "0x0091F4A4",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Orb Chunk",
+    "Id": 17,
+    "Address": "0",
+    "AddressBit": 0
+  },
+  {
+    "Name": "500 Gold Coins",
+    "Id": 18,
+    "Address": "0x0091F6E8",
+    "AddressBit": 0
+  },
+  {
+    "Name": "5000 Gold Coins",
+    "Id": 19,
+    "Address": "0x0091F6E8",
+    "AddressBit": 0
+  },
+  {
+    "Name": "5 Silver Coins",
+    "Id": 20,
+    "Address": "0x0091EE30",
+    "AddressBit": 0
   }
 ]
