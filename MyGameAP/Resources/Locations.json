@@ -1,164 +1,19 @@
 ﻿[
   {
-    "Name": "FdC: Near Pueblucho Chest",
-    "Id": 51,
-    "Address": "0x17559FAF",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Name": "Location 1",
+    "Id": 123456,
+    "Address": "0x12345678",
+    "CheckType": "Int",
+    "CheckValue": 0,
+    "CompareType": "GreaterThan",
+    "Category": "Key Item"
   },
   {
-    "Name": "FdC: Lower Pollo Chest",
-    "Id": 52,
-    "Address": "0x17559FF3",
+    "Name": "Location 2",
+    "Id": 123456,
+    "Address": "0x12345678",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-  {
-    "Name": "FdC: Near Chivo Store Chest",
-    "Id": 53,
-    "Address": "0x1755A07B",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-  {
-    "Name": "FdC: Alcove Near Luchita Chest",
-    "Id": 54,
-    "Address": "0x1755A0BF",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Stamina Chest"
-  },
-  {
-    "Name": "FdC: Main Shaft Red Challenge Chest",
-    "Id": 55,
-    "Address": "0x1755A103",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-  {
-    "Name": "FdC: Main Shaft Yellow Challenge Chest",
-    "Id": 56,
-    "Address": "0x1755A147",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "500 Coin Chest"
-  },
-  {
-    "Name": "FdC: Main Shaft Blue Challenge Chest",
-    "Id": 57,
-    "Address": "0x1755A18B",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-  {
-    "Name": "FdC: Near Tule Tree Chest",
-    "Id": 58,
-    "Address": "0x1755A1CF",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "500 Coin Chest"
-  },
-  {
-    "Name": "FdC: Chivo Alcove Chest",
-    "Id": 59,
-    "Address": "0x1755A213",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Stamina Chest"
-  },
-  {
-    "Name": "FdC: Chivo Pollo Chest",
-    "Id": 60,
-    "Address": "0x1755A257",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "500 Coin Chest"
-  },
-  {
-    "Name": "FdC: Main Shaft Green Challenge Chest",
-    "Id": 61,
-    "Address": "0x1755AB9B",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-  {
-    "Name": "FdC: Skull Lever Chestt",
-    "Id": 62,
-    "Address": "0x1755A2DF",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-  {
-    "Name": "FdC: High Platform Chest",
-    "Id": 63,
-    "Address": "0x1755A323",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "500 Coin Chest"
-  },
-  {
-    "Name": "FdC: Near Canal Chest",
-    "Id": 64,
-    "Address": "0x0",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-
-  {
-    "Name": "Pb: Chest On Top of Church",
-    "Id": 201,
-    "Address": "0x1755B8A7",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Health Chest"
-  },
-  {
-    "Name": "Pb: Pollo Chest",
-    "Id": 202,
-    "Address": "0x1755B8EB",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Intenso Chest"
-  },
-  {
-    "Name": "Pb: X'tabay Chest",
-    "Id": 203,
-    "Address": "0x1755B92F",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Intenso Chest"
-  },
-  {
-    "Name": "Pb: Inside Church Chest",
-    "Id": 204,
-    "Address": "0x1755B973",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "500 Coin Chest"
-  },
-
-  {
-    "Name": "LmdP: Platform Chest",
-    "Id": 400,
-    "Address": "0x1755CB3F",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "500 Coin Chest"
-  },
-  {
-    "Name": "AF: Juan House Chest",
-    "Id": 401,
-    "Address": "0x1755CD5F",
-    "CheckType": "Bit",
-    "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "Key Item"
   }
 ]

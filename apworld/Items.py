@@ -22,8 +22,10 @@ item_table: List[GuacItemData] = [
 
     # Abilities
     GuacItemData("Pollo Power", 1, ItemClassification.progression),
+    GuacItemData("Dimension Swap", 1, ItemClassification.progression),
     GuacItemData("Double Jump", 1, ItemClassification.progression),
     GuacItemData("Goat Jump", 1, ItemClassification.progression),
+    GuacItemData("Goat Climb", 1, ItemClassification.progression),
     GuacItemData("Goat Fly", 1, ItemClassification.progression),
     GuacItemData("Pollo Fly", 1, ItemClassification.progression),
 
@@ -33,7 +35,7 @@ item_table: List[GuacItemData] = [
     GuacItemData("Intenso Chunk", 9, ItemClassification.useful),
     GuacItemData("Orb Chunk", 6, ItemClassification.progression),
     GuacItemData("500 Gold Coins", 1, ItemClassification.filler),
-    GuacItemData("5000 Gold Coins", 1, ItemClassification.filler),
+    GuacItemData("5000 Gold Coins", 2, ItemClassification.filler),
     GuacItemData("5 Silver Coins", 13, ItemClassification.progression),
     GuacItemData("Enemy Trap", 5, ItemClassification.trap)
 ]
