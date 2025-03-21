@@ -1,20 +1,20 @@
 ﻿[
   {
-    "Name": "Rooster Uppercut",
-    "Id": 1,
-    "Address": "0x10A99F9B",
-    "AddressBit": 0
-  },
-  {
     "Name": "Omlec Headbutt",
-    "Id": 2,
+    "Id": 1,
     "Address": "0x10A999DB",
     "AddressBit": 0
   },
   {
     "Name": "Dashing Derp Derp",
-    "Id": 3,
+    "Id": 2,
     "Address": "0x10A99CBB",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Rooster Uppercut",
+    "Id": 3,
+    "Address": "0x10A99F9B",
     "AddressBit": 0
   },
   {
@@ -24,39 +24,57 @@
     "AddressBit": 0
   },
   {
-    "Name": "Goat Fly",
+    "Name": "Intenso",
     "Id": 5,
-    "Address": "0x10AA2C7B",
+    "Address": "0",
     "AddressBit": 0
   },
   {
-    "Name": "Goat Climb",
+    "Name": "Pollo Bomba",
     "Id": 6,
-    "Address": "0x10AA2F5B",
+    "Address": "0x10A92B1B",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Pollo Power",
+    "Id": 7,
+    "Address": "0x10A9141B",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Dimension Swap",
+    "Id": 8,
+    "Address": "0",
     "AddressBit": 0
   },
   {
     "Name": "Double Jump",
-    "Id": 7,
+    "Id": 9,
     "Address": "0x00911654",
     "AddressBit": 1
   },
   {
     "Name": "Goat Jump",
-    "Id": 8,
+    "Id": 10,
     "Address": "0x00911654",
     "AddressBit": 2
   },
   {
-    "Name": "Pollo Power",
-    "Id": 9,
-    "Address": "0x10A9141B",
+    "Name": "Goat Climb",
+    "Id": 11,
+    "Address": "0x10AA2F5B",
     "AddressBit": 0
   },
   {
-    "Name": "Pollo Bomba",
-    "Id": 10,
-    "Address": "0x10A92B1B",
+    "Name": "Goat Fly",
+    "Id": 12,
+    "Address": "0x10AA2C7B",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Pollo Fly",
+    "Id": 13,
+    "Address": "0",
     "AddressBit": 0
   }
 ]
