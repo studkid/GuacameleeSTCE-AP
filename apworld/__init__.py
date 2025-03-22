@@ -25,7 +25,7 @@ class GuacWorld(World):
     topology_present = False
 
     item_name_to_id = {item.name: (base_id + index) for index, item in enumerate(item_table)}
-    location_name_to_id = {loc.area + ": " + loc.name: (base_id + index) for index, loc in enumerate(location_table)}
+    location_name_to_id = {loc.area + ": " + loc.name: (loc.id) for index, loc in enumerate(location_table)}
 
     required_client_version = (0, 5, 0)
 
