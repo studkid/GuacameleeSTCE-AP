@@ -91,6 +91,9 @@ namespace MyGameAP {
                 }
             }
 
+            var baseAddress = Memory.GetBaseAddress("Game");
+            Log.Logger.Verbose($"[[game.exe+50CC04]+B4]: {string.Format("0x{0:X}", Archipelago.Core.Util.Helpers.ResolvePointer(0x10B04B20, [0xB4]))}");
+            Log.Logger.Verbose($"[[game.exe+50CC04]+B4] + 267F: {string.Format("0x{0:X}", Archipelago.Core.Util.Helpers.ResolvePointer(0x1721A3B8,[0x267F]))}");
             Memory.WriteBit(0x00911654, 4, true);
         }
 
@@ -114,29 +117,26 @@ namespace MyGameAP {
             }
             if(name == "Health Chunk") {
                 healthChunks += quantity;
-                var curHealth = Memory.ReadFloat(address);
                 float addHealth = 20 * (float)Math.Floor((double)healthChunks / 3);
-                Memory.Write(address, curHealth + addHealth);
+                Memory.Write(address, 80 + addHealth);
                 Log.Logger.Information($"Health Chunk {healthChunks % 3} / 3 (Total {healthChunks})");
-                Log.Logger.Verbose($"New Health {curHealth + addHealth}");
+                Log.Logger.Verbose($"New Health {80 + addHealth}");
                 return;
             }
             if(name == "Stamina Chunk") {
                 staminaChunks += quantity;
-                var curStamina = Memory.ReadFloat(address);
                 float addStamina = (float)Math.Floor((double)staminaChunks / 3);
-                Memory.Write(address,curStamina + addStamina); 
+                Memory.Write(address,  2 + addStamina); 
                 Log.Logger.Information($"Stamina Chunk {staminaChunks % 3} / 3 (Total {staminaChunks})");
-                Log.Logger.Verbose($"New Stamina {curStamina + addStamina}");
+                Log.Logger.Verbose($"New Stamina {2 + addStamina}");
                 return;
             }
             if(name == "Intenso Chunk") {
                 intensoChunks += quantity;
-                var curIntenso = Memory.ReadFloat(address);
                 float addIntenso = 10 * (float)Math.Floor((double)intensoChunks / 3);
-                Memory.Write(address,curIntenso + addIntenso);
+                Memory.Write(address, 70 + addIntenso);
                 Log.Logger.Information($"Intenso Chunk {intensoChunks % 3} / 3 (Total {intensoChunks})");
-                Log.Logger.Verbose($"New Intenso {curIntenso + addIntenso}");
+                Log.Logger.Verbose($"New Intenso {70 + addIntenso}");
                 return;
             }
 
@@ -196,6 +196,9 @@ namespace MyGameAP {
 
         private static void OnDisconnected(object sender, EventArgs args) {
             Log.Logger.Information("Disconnected from Archipelago");
+            healthChunks = 0;
+            staminaChunks = 0;
+            intensoChunks = 0;
         }
 
         protected override Window CreateWindow(IActivationState activationState) {
