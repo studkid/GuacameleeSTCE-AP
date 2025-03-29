@@ -22,7 +22,7 @@ namespace MyGameAP {
                     Name = loc.Name,
                     Id = loc.Id,
                     CheckType = loc.CheckType,
-                    Address = GetChestFlag(loc.Address),
+                    Address = (ulong)GetChestFlag(loc.Address),
                     AddressBit = loc.AddressBit
                 });
             }
@@ -44,15 +44,15 @@ namespace MyGameAP {
             }
         }
 
-        public static ulong OffsetPointer(ulong ptr,int offset) {
-            ushort offsetWithin4GB = (ushort)(ptr & 0xFFFF);
-            ushort newOffset = (ushort)(offsetWithin4GB + offset);
-            ulong newAddress = (ptr & 0xFFFF0000) | newOffset;
-            return newAddress;
-        }
+        public static uint GetChestFlag(uint address) {
+            uint baseAddress = 0x00400000;
+            uint initialAddress = baseAddress + 0x50cc04;
 
-        public static ulong GetChestFlag(ulong address) {
-            return Archipelago.Core.Util.Helpers.ResolvePointer(0x1721A3B8, [address]);
+            var pointer1 = Memory.ReadUInt(initialAddress);
+            var pointer2 = Memory.ReadUInt(pointer1 + 0xb4);
+            var result = pointer2 + address;
+            Log.Logger.Information($"Address: {string.Format("0x{0:X}", address)} | Bit: {Memory.ReadInt(result)}");
+            return result;
         }
     }
 }

@@ -17,7 +17,7 @@
     "Name": "Rooster Uppercut",
     "Id": 3,
     "Address": "0x10A99F9B",
-    "SaveAddress": "0",
+    "SaveAddress": "0x0E339478",
     "AddressBit": 0
   },
   {
@@ -30,7 +30,7 @@
   {
     "Name": "Intenso",
     "Id": 5,
-    "Address": "0",
+    "Address": "0x0E339130",
     "SaveAddress": "0",
     "AddressBit": 0
   },
@@ -44,14 +44,14 @@
   {
     "Name": "Pollo Power",
     "Id": 7,
-    "Address": "0x10A9141B",
-    "SaveAddress": "0",
+    "Address": "0x172432E3",
+    "SaveAddress": "0x172404E3",
     "AddressBit": 0
   },
   {
     "Name": "Dimension Swap",
     "Id": 8,
-    "Address": "0",
+    "Address": "0x0E338DE8",
     "SaveAddress": "0",
     "AddressBit": 0
   },
@@ -66,7 +66,7 @@
     "Name": "Goat Jump",
     "Id": 10,
     "Address": "0x00911654",
-    "SaveAddress": "0",
+    "SaveAddress": "0x0E339520",
     "AddressBit": 2
   },
   {
@@ -136,6 +136,13 @@
     "Name": "5 Silver Coins",
     "Id": 20,
     "Address": "0x0091EE30",
+    "SaveAddress": "0",
+    "AddressBit": 0
+  },
+  {
+    "Name": "Enemy Trap",
+    "Id": 21,
+    "Address": "0",
     "SaveAddress": "0",
     "AddressBit": 0
   }

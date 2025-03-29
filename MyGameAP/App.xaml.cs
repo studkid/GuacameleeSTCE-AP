@@ -66,6 +66,9 @@ namespace MyGameAP {
             Client.ItemReceived += Client_ItemReceived;
             Client.MessageReceived += Client_MessageReceived;
 
+            var myLocations = Helpers.GetLocations();
+            guacameleeItems = Helpers.GetItems();
+
             await Client.Login(e.Slot,!string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
 
             //if (Client.Options.ContainsKey("EnableDeathlink") && (bool)Client.Options["EnableDeathlink"]) {
@@ -73,9 +76,6 @@ namespace MyGameAP {
             //    _deathlinkService.OnDeathLinkReceived += _deathlinkService_OnDeathLinkReceived;
             //    //ToDo listen for player death
             //}
-
-            var myLocations = Helpers.GetLocations();
-            guacameleeItems = Helpers.GetItems();
 
             //var goalLocation = myLocations.First(x => x.Name.Contains("GoalLocationName"));
             //Memory.MonitorAddressBitForAction(goalLocation.Address, goalLocation.AddressBit, () => Client.SendGoalCompletion());
@@ -87,13 +87,10 @@ namespace MyGameAP {
             foreach(Item item in Client.GameState.ReceivedItems) {
                 var itemToAdd = guacameleeItems[(int)item.Id - 1];
                 if(itemToAdd.Name != "500 Gold Coin" || itemToAdd.Name != "5000 Gold Coins" || itemToAdd.Name != "5 Silver Coins") {
-                    AddItem(itemToAdd.Name, itemToAdd.Address, itemToAdd.AddressBit, item.Quantity);
+                    AddItem(itemToAdd.Name, itemToAdd.Address, itemToAdd.SaveAddress, itemToAdd.AddressBit, item.Quantity);
                 }
             }
 
-            var baseAddress = Memory.GetBaseAddress("Game");
-            Log.Logger.Verbose($"[[game.exe+50CC04]+B4]: {string.Format("0x{0:X}", Archipelago.Core.Util.Helpers.ResolvePointer(0x10B04B20, [0xB4]))}");
-            Log.Logger.Verbose($"[[game.exe+50CC04]+B4] + 267F: {string.Format("0x{0:X}", Archipelago.Core.Util.Helpers.ResolvePointer(0x1721A3B8,[0x267F]))}");
             Memory.WriteBit(0x00911654, 4, true);
         }
 
@@ -107,14 +104,11 @@ namespace MyGameAP {
             var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == itemId);
             if(itemToReceive != null) {
                 Log.Logger.Verbose($"Received {itemToReceive.Name} ({itemToReceive.Id})");
-                AddItem(itemToReceive.Name, itemToReceive.Address, itemToReceive.AddressBit);
+                AddItem(itemToReceive.Name, itemToReceive.Address, itemToReceive.SaveAddress, itemToReceive.AddressBit);
             }
         }
 
-        private static void AddItem(string name, ulong address, int bit, int quantity = 1) {
-            if(name == "Pollo Power") {
-                Memory.WriteBit(0x10A9141B, 0, true);
-            }
+        private static void AddItem(string name, ulong address, ulong address2, int bit, int quantity = 1) {
             if(name == "Health Chunk") {
                 healthChunks += quantity;
                 float addHealth = 20 * (float)Math.Floor((double)healthChunks / 3);
@@ -141,6 +135,9 @@ namespace MyGameAP {
             }
 
             Memory.WriteBit(address, bit, true);
+            if(address2 != 0) {
+                Memory.WriteBit(address2, bit, true);
+            }
         }
 
         private void Client_MessageReceived(object? sender, Archipelago.Core.Models.MessageReceivedEventArgs e) {
