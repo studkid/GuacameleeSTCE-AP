@@ -3,6 +3,7 @@ using Archipelago.Core.MauiGUI;
 using Archipelago.Core.MauiGUI.Models;
 using Archipelago.Core.MauiGUI.ViewModels;
 using Archipelago.Core.Models;
+using Archipelago.Core.Traps;
 using Archipelago.Core.Util;
 using Archipelago.MultiClient.Net.BounceFeatures.DeathLink;
 using Archipelago.MultiClient.Net.MessageLog.Messages;
@@ -17,6 +18,7 @@ namespace MyGameAP {
         private DeathLinkService _deathlinkService;
         private static readonly object _lockObject = new object();
         private static List<GuacameleeItem> guacameleeItems { get; set; }
+        private static uint baseAddress = 0x00400000;
         private static int healthChunks = 0;
         private static int staminaChunks = 0;
         private static int intensoChunks = 0;
@@ -86,12 +88,13 @@ namespace MyGameAP {
 
             foreach(Item item in Client.GameState.ReceivedItems) {
                 var itemToAdd = guacameleeItems[(int)item.Id - 1];
-                if(itemToAdd.Name != "500 Gold Coin" || itemToAdd.Name != "5000 Gold Coins" || itemToAdd.Name != "5 Silver Coins") {
-                    AddItem(itemToAdd.Name, itemToAdd.Address, itemToAdd.SaveAddress, itemToAdd.AddressBit, item.Quantity);
+                if(itemToAdd.Category != "Money" || itemToAdd.Category != "Trap") {
+                    AddItem(itemToAdd.Name, itemToAdd.Category, itemToAdd.Address, itemToAdd.SaveAddress, itemToAdd.AddressBit, item.Quantity);
                 }
             }
 
-            Memory.WriteBit(0x00911654, 4, true);
+            //Enable stamina bar
+            Memory.WriteBit(baseAddress + 0x511654, 4, true);
         }
 
         private void _deathlinkService_OnDeathLinkReceived(DeathLink deathLink) {
@@ -104,39 +107,71 @@ namespace MyGameAP {
             var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == itemId);
             if(itemToReceive != null) {
                 Log.Logger.Verbose($"Received {itemToReceive.Name} ({itemToReceive.Id})");
-                AddItem(itemToReceive.Name, itemToReceive.Address, itemToReceive.SaveAddress, itemToReceive.AddressBit);
+                AddItem(itemToReceive.Name, itemToReceive.Category, itemToReceive.Address, itemToReceive.SaveAddress, itemToReceive.AddressBit);
             }
         }
 
-        private static void AddItem(string name, ulong address, ulong address2, int bit, int quantity = 1) {
-            if(name == "Health Chunk") {
-                healthChunks += quantity;
-                float addHealth = 20 * (float)Math.Floor((double)healthChunks / 3);
-                Memory.Write(address, 80 + addHealth);
-                Log.Logger.Information($"Health Chunk {healthChunks % 3} / 3 (Total {healthChunks})");
-                Log.Logger.Verbose($"New Health {80 + addHealth}");
-                return;
-            }
-            if(name == "Stamina Chunk") {
-                staminaChunks += quantity;
-                float addStamina = (float)Math.Floor((double)staminaChunks / 3);
-                Memory.Write(address,  2 + addStamina); 
-                Log.Logger.Information($"Stamina Chunk {staminaChunks % 3} / 3 (Total {staminaChunks})");
-                Log.Logger.Verbose($"New Stamina {2 + addStamina}");
-                return;
-            }
-            if(name == "Intenso Chunk") {
-                intensoChunks += quantity;
-                float addIntenso = 10 * (float)Math.Floor((double)intensoChunks / 3);
-                Memory.Write(address, 70 + addIntenso);
-                Log.Logger.Information($"Intenso Chunk {intensoChunks % 3} / 3 (Total {intensoChunks})");
-                Log.Logger.Verbose($"New Intenso {70 + addIntenso}");
-                return;
+        private static void AddItem(string name, string category, uint address, uint address2, int bit, int quantity = 1) {
+            if(category == "Simple") {
+                var newAddress = baseAddress + address;
+                Memory.WriteBit(newAddress, bit, true);
             }
 
-            Memory.WriteBit(address, bit, true);
-            if(address2 != 0) {
-                Memory.WriteBit(address2, bit, true);
+            else if(category == "Health") {
+                healthChunks += quantity;
+                float addHealth = 20 * (float)Math.Floor((double)healthChunks / 3);
+                Memory.Write(Helpers.GetHealthFlag(address), 80 + addHealth);
+                Log.Logger.Information($"Health Chunk {healthChunks % 3} / 3 (Total {healthChunks})");
+                Log.Logger.Debug($"New Health {80 + addHealth}");
+            }
+
+            else if(category == "Stamina") {
+                staminaChunks += quantity;
+                float addStamina = (float)Math.Floor((double)staminaChunks / 3);
+                Memory.Write(Helpers.GetStaminaFlag(address),2 + addStamina);
+                Log.Logger.Information($"Stamina Chunk {staminaChunks % 3} / 3 (Total {staminaChunks})");
+                Log.Logger.Debug($"New Stamina {2 + addStamina}");
+            }
+
+            else if(category == "Intenso") {
+                intensoChunks += quantity;
+                var newAddress = baseAddress + address;
+                float addIntenso = 10 * (float)Math.Floor((double)intensoChunks / 3);
+                Memory.Write(newAddress, 70 + addIntenso);
+                Log.Logger.Information($"Intenso Chunk {intensoChunks % 3} / 3 (Total {intensoChunks})");
+                Log.Logger.Debug($"New Intenso {70 + addIntenso}");
+            }
+
+            else if(category == "Power") {
+                Memory.WriteBit(Helpers.GetPowerFlag(address),bit,true);
+                if (address2 != 0 || name == "Goat Jump") {
+                    Memory.WriteBit(Helpers.GetPowerFlag(address2),bit,true);
+                }
+
+                Log.Logger.Debug($"Adding {name}");
+            }
+
+            else if(category == "Pollo") {
+                Memory.WriteBit(Helpers.GetPolloFlag(address),bit,true);
+                if (name == "Pollo Power") {
+                    Memory.WriteBit(Helpers.GetPowerFlag(address2),bit,true);
+                }
+                //else {
+                //    Memory.WriteBit(Helpers.GetPolloFlag(address2),bit,true);
+                //}
+
+                Log.Logger.Debug($"Adding {name}");
+            }
+
+            else if(category == "Money") {
+
+            }
+
+            else if(category == "Trap") {
+                //LagTrap lag = new LagTrap();
+                //lag.Start();
+
+                //Log.Logger.Debug($"Lag Trap Starting");
             }
         }
 

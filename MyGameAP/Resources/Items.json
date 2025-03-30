@@ -2,148 +2,169 @@
   {
     "Name": "Omlec Headbutt",
     "Id": 1,
-    "Address": "0x10A999DB",
+    "Address": "0x3A3",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Power"
   },
   {
     "Name": "Dashing Derp Derp",
     "Id": 2,
-    "Address": "0x10A99CBB",
+    "Address": "0x683",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Power"
   },
   {
     "Name": "Rooster Uppercut",
     "Id": 3,
-    "Address": "0x10A99F9B",
-    "SaveAddress": "0x0E339478",
-    "AddressBit": 0
+    "Address": "0x963",
+    "SaveAddress": "0x80",
+    "AddressBit": 0,
+    "Category": "Power"
   },
   {
     "Name": "Frog Slam",
     "Id": 4,
-    "Address": "0x10AA09FB",
+    "Address": "0x73C3",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Power"
   },
   {
     "Name": "Intenso",
     "Id": 5,
-    "Address": "0x0E339130",
+    "Address": "0x50",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Save"
   },
   {
     "Name": "Pollo Bomba",
     "Id": 6,
-    "Address": "0x10A92B1B",
+    "Address": "0x1AA3",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Pollo"
   },
   {
     "Name": "Pollo Power",
     "Id": 7,
-    "Address": "0x172432E3",
-    "SaveAddress": "0x172404E3",
-    "AddressBit": 0
+    "Address": "0x3A3",
+    "SaveAddress": "0x31A3",
+    "AddressBit": 0,
+    "Category": "Pollo"
   },
   {
     "Name": "Dimension Swap",
     "Id": 8,
-    "Address": "0x0E338DE8",
+    "Address": "0x350",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Save"
   },
   {
     "Name": "Double Jump",
     "Id": 9,
-    "Address": "0x00911654",
+    "Address": "0x511654",
     "SaveAddress": "0",
-    "AddressBit": 1
+    "AddressBit": 1,
+    "Category": "Simple"
   },
   {
     "Name": "Goat Jump",
     "Id": 10,
-    "Address": "0x00911654",
-    "SaveAddress": "0x0E339520",
-    "AddressBit": 2
+    "Address": "0x511654",
+    "SaveAddress": "0x0",
+    "AddressBit": 2,
+    "Category": "Simple"
   },
   {
     "Name": "Goat Climb",
     "Id": 11,
-    "Address": "0x10AA2F5B",
+    "Address": "0x9923",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Power"
   },
   {
     "Name": "Goat Fly",
     "Id": 12,
-    "Address": "0x10AA2C7B",
+    "Address": "0x9643",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Power"
   },
   {
     "Name": "Pollo Fly",
     "Id": 13,
     "Address": "0",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Pollo"
   },
   {
     "Name": "Health Chunk",
     "Id": 14,
-    "Address": "0x1C292970",
+    "Address": "0x1A8",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Health"
   },
   {
     "Name": "Stamina Chunk",
     "Id": 15,
-    "Address": "0x1C39EA90",
+    "Address": "0x150",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Stamina"
   },
   {
     "Name": "Intenso Chunk",
     "Id": 16,
-    "Address": "0x0091F4A4",
+    "Address": "0x51F4A4",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Intenso"
   },
   {
     "Name": "Orb Chunk",
     "Id": 17,
     "Address": "0",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Simple"
   },
   {
     "Name": "500 Gold Coins",
     "Id": 18,
-    "Address": "0x0091F6E8",
+    "Address": "0x51F6E8",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Coins"
   },
   {
     "Name": "5000 Gold Coins",
     "Id": 19,
-    "Address": "0x0091F6E8",
+    "Address": "0x51F6E8",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Coins"
   },
   {
     "Name": "5 Silver Coins",
     "Id": 20,
-    "Address": "0x0091EE30",
+    "Address": "0x51EE30",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Coins"
   },
   {
     "Name": "Enemy Trap",
     "Id": 21,
     "Address": "0",
     "SaveAddress": "0",
-    "AddressBit": 0
+    "AddressBit": 0,
+    "Category": "Trap"
   }
 ]
