@@ -141,7 +141,7 @@
     "Address": "0x51F6E8",
     "SaveAddress": "0",
     "AddressBit": 0,
-    "Category": "Coins"
+    "Category": "Money"
   },
   {
     "Name": "5000 Gold Coins",
@@ -149,7 +149,7 @@
     "Address": "0x51F6E8",
     "SaveAddress": "0",
     "AddressBit": 0,
-    "Category": "Coins"
+    "Category": "Money"
   },
   {
     "Name": "5 Silver Coins",
@@ -157,7 +157,7 @@
     "Address": "0x51EE30",
     "SaveAddress": "0",
     "AddressBit": 0,
-    "Category": "Coins"
+    "Category": "Money"
   },
   {
     "Name": "Enemy Trap",

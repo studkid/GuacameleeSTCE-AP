@@ -88,7 +88,7 @@ namespace MyGameAP {
 
             foreach(Item item in Client.GameState.ReceivedItems) {
                 var itemToAdd = guacameleeItems[(int)item.Id - 1];
-                if(itemToAdd.Category != "Money" || itemToAdd.Category != "Trap") {
+                if(itemToAdd.Category != "Money" && itemToAdd.Category != "Enemy Trap") {
                     AddItem(itemToAdd.Name, itemToAdd.Category, itemToAdd.Address, itemToAdd.SaveAddress, itemToAdd.AddressBit, item.Quantity);
                 }
             }
@@ -102,11 +102,12 @@ namespace MyGameAP {
         }
 
         private static void Client_ItemReceived(object? sender, ItemReceivedEventArgs e) {
-            LogItem(e.Item);
             var itemId = e.Item.Id;
             var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == itemId);
             if(itemToReceive != null) {
-                Log.Logger.Verbose($"Received {itemToReceive.Name} ({itemToReceive.Id})");
+                e.Item.Category = itemToReceive.Category;
+                LogItem(e.Item);
+                Log.Logger.Debug($"Received {itemToReceive.Name} ({itemToReceive.Id})");
                 AddItem(itemToReceive.Name, itemToReceive.Category, itemToReceive.Address, itemToReceive.SaveAddress, itemToReceive.AddressBit);
             }
         }
@@ -131,6 +132,7 @@ namespace MyGameAP {
                 Memory.Write(Helpers.GetStaminaFlag(address),2 + addStamina);
                 Log.Logger.Information($"Stamina Chunk {staminaChunks % 3} / 3 (Total {staminaChunks})");
                 Log.Logger.Debug($"New Stamina {2 + addStamina}");
+                Memory.FreezeAddress(Helpers.GetStaminaFlag(address), 1);
             }
 
             else if(category == "Intenso") {
@@ -143,12 +145,11 @@ namespace MyGameAP {
             }
 
             else if(category == "Power") {
+                Log.Logger.Debug($"Adding {name}");
                 Memory.WriteBit(Helpers.GetPowerFlag(address),bit,true);
                 if (address2 != 0 || name == "Goat Jump") {
-                    Memory.WriteBit(Helpers.GetPowerFlag(address2),bit,true);
+                    Memory.WriteBit(Helpers.GetSaveDataFlag(address2),bit,true);
                 }
-
-                Log.Logger.Debug($"Adding {name}");
             }
 
             else if(category == "Pollo") {
@@ -163,8 +164,27 @@ namespace MyGameAP {
                 Log.Logger.Debug($"Adding {name}");
             }
 
-            else if(category == "Money") {
+            else if (category == "Save") {
+                Log.Logger.Debug($"Adding {name}");
+                Memory.WriteBit(Helpers.GetSaveDataFlag(address),bit,true);
+            }
 
+            else if(category == "Money") {
+                if(name == "500 Gold Coins") {
+                    var curGold = Memory.ReadUInt(baseAddress + address);
+                    Memory.Write(baseAddress + address,curGold + 500);
+                    Log.Logger.Debug($"Adding gold ({curGold} -> {curGold + 500})");
+                }
+                else if (name == "5000 Gold Coins") {
+                    var curGold = Memory.ReadUInt(baseAddress + address);
+                    Memory.Write(baseAddress + address,curGold + 5000);
+                    Log.Logger.Debug($"Adding gold ({curGold} -> {curGold + 5000})");
+                }
+                else if (name == "5 Silver Coins") {
+                    var curGold = Memory.ReadUInt(baseAddress + address);
+                    Memory.Write(baseAddress + address,curGold + 5);
+                    Log.Logger.Debug($"Adding silver ({curGold} -> {curGold + 5})");
+                }
             }
 
             else if(category == "Trap") {
