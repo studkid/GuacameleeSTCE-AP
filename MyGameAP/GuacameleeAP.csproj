@@ -51,12 +51,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Locations.json" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <EmbeddedResource Include="Resources\Items.json" />
-	  <EmbeddedResource Include="Resources\Locations.json" />
       <EmbeddedResource Include="Resources\Chests.json" />
 	</ItemGroup>
 
