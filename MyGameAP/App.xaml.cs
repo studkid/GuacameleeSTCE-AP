@@ -69,7 +69,7 @@ namespace MyGameAP {
             Client.ItemReceived += Client_ItemReceived;
             Client.MessageReceived += Client_MessageReceived;
 
-            var myLocations = Helpers.GetLocations();
+            var guacameleeLocations = Helpers.GetLocations();
             guacameleeItems = Helpers.GetItems();
 
             await Client.Login(e.Slot,!string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
@@ -83,7 +83,7 @@ namespace MyGameAP {
             //var goalLocation = myLocations.First(x => x.Name.Contains("GoalLocationName"));
             //Memory.MonitorAddressBitForAction(goalLocation.Address, goalLocation.AddressBit, () => Client.SendGoalCompletion());
 
-            Client.MonitorLocations(myLocations);
+            Client.MonitorLocations(guacameleeLocations);
 
             Context.ConnectButtonEnabled = true;
 
