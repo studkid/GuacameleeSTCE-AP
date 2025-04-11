@@ -1,0 +1,50 @@
+[
+  {
+    "Name": "ChacMool: Caverna Orb",
+    "Id": 1000,
+    "Address": "0x410",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "Orb"
+  },
+  {
+    "Name": "ChacMool: Sierra Orb",
+    "Id": 1001,
+    "Address": "0x420",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "Orb"
+  },
+  {
+    "Name": "ChacMool: Forest dl Chivo Orb",
+    "Id": 1002,
+    "Address": "0x430",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "Orb"
+  },
+  {
+    "Name": "ChacMool: Tule Tree Orb",
+    "Id": 1003,
+    "Address": "0x440",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "Orb"
+  },
+  {
+    "Name": "ChacMool: Agave Field Orb",
+    "Id": 1004,
+    "Address": "0x450",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "Orb"
+  },
+  {
+    "Name": "ChacMool: Infierno Orb",
+    "Id": 1005,
+    "Address": "0x460",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "Orb"
+  }
+]
