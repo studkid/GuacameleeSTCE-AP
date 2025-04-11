@@ -3,7 +3,7 @@ using Archipelago.Core.Util;
 using Newtonsoft.Json;
 
 namespace GuacameleeAP.Models {
-    class GuacameleeChest {
+    public class GuacameleeLocation {
         public string Name { get; set; }
         public int Id { get; set; }
         [JsonConverter(typeof(HexToUIntConverter))]

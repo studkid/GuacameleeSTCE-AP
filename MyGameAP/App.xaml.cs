@@ -10,6 +10,9 @@ using Archipelago.MultiClient.Net.MessageLog.Messages;
 using GuacameleeAP.Models;
 using Newtonsoft.Json;
 using Serilog;
+using System.Net;
+using System.Xml.Linq;
+using Windows.Media.Protection.PlayReady;
 
 namespace MyGameAP {
     public partial class App : Application {
@@ -18,6 +21,7 @@ namespace MyGameAP {
         private DeathLinkService _deathlinkService;
         private static readonly object _lockObject = new object();
         private static List<GuacameleeItem> guacameleeItems { get; set; }
+        private static List<GuacameleeLocation> guacameleeLocations { get; set; }
         private static uint baseAddress = 0x00400000;
         private static float healthChunks = 0;
         private static float staminaChunks = 0;
@@ -68,8 +72,10 @@ namespace MyGameAP {
 
             Client.ItemReceived += Client_ItemReceived;
             Client.MessageReceived += Client_MessageReceived;
+            Client.LocationCompleted += Client_LocationCompleted;
 
-            var guacameleeLocations = Helpers.GetLocations();
+            guacameleeLocations = Helpers.GetGuacameleeLocations();
+            var apLocations = Helpers.GetLocations(guacameleeLocations);
             guacameleeItems = Helpers.GetItems();
 
             await Client.Login(e.Slot,!string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
@@ -83,7 +89,7 @@ namespace MyGameAP {
             //var goalLocation = myLocations.First(x => x.Name.Contains("GoalLocationName"));
             //Memory.MonitorAddressBitForAction(goalLocation.Address, goalLocation.AddressBit, () => Client.SendGoalCompletion());
 
-            Client.MonitorLocations(guacameleeLocations);
+            Client.MonitorLocations(apLocations);
 
             Context.ConnectButtonEnabled = true;
 
@@ -142,7 +148,7 @@ namespace MyGameAP {
             else if(category == "Intenso") {
                 intensoChunks += quantity;
                 var newAddress = baseAddress + address;
-                float addIntenso = 10 * (float)Math.Floor((double)intensoChunks / 3);
+                float addIntenso = 15 * (float)Math.Floor((double)intensoChunks / 3);
                 Memory.Write(newAddress, 70 + addIntenso);
                 Memory.Write(baseAddress + 0x51F7D8,intensoChunks);
                 Memory.Write(Helpers.GetSaveDataFlag(address2),intensoChunks);
@@ -234,7 +240,72 @@ namespace MyGameAP {
             }
         }
 
-        private void Client_MessageReceived(object? sender, Archipelago.Core.Models.MessageReceivedEventArgs e) {
+        private void Client_LocationCompleted(object? sender, LocationCompletedEventArgs e) { 
+            var locId = e.CompletedLocation.Id;
+            var locToReceive = guacameleeLocations.FirstOrDefault(x => x.Id == locId);
+            Log.Logger.Verbose($"locId {locId} locToReceive {locToReceive}");
+            if (locToReceive != null) {
+                //e.CompletedLocation.Category = locToReceive.Category;
+                Log.Logger.Debug($"Removing {locToReceive.Category} ({locToReceive.Id})");
+                RemoveItem(locToReceive.Category);
+            }
+        }
+
+        private void RemoveItem(string category) {
+            var itemToRemove = guacameleeItems.FirstOrDefault(x => x.Name == category);
+            if(itemToRemove != null) {
+                var address = itemToRemove.Address;
+                var address2 = itemToRemove.SaveAddress;
+
+                if (category == "Health Chunk") {
+                    float addHealth = 20 * (float)Math.Floor((double)healthChunks / 3);
+                    Memory.Write(Helpers.GetHealthFlag(address),80 + addHealth);
+                    Memory.Write(baseAddress + 0x51F7B0,healthChunks);
+                    Memory.Write(Helpers.GetSaveDataFlag(address2),healthChunks);
+                    Log.Logger.Debug($"Health Chunk {healthChunks % 3} / 3 (Total {healthChunks})");
+                    Log.Logger.Debug($"New Health {80 + addHealth}");
+                }
+
+                else if (category == "Stamina Chunk") {
+                    float addStamina = (float)Math.Floor((double)staminaChunks / 3);
+                    Memory.Write(Helpers.GetStaminaFlag(address),2 + addStamina);
+                    Memory.Write(baseAddress + 0x51F7D0,staminaChunks);
+                    Memory.Write(Helpers.GetSaveDataFlag(address2),staminaChunks);
+                    Log.Logger.Debug($"Stamina Chunk {staminaChunks % 3} / 3 (Total {staminaChunks})");
+                    Log.Logger.Debug($"New Stamina {2 + addStamina}");
+                }
+
+                else if(category == "Intenso Chunk") {
+                    var newAddress = baseAddress + address;
+                    float addIntenso = 15 * (float)Math.Floor((double)intensoChunks / 3);
+                    Memory.Write(newAddress,70 + addIntenso);
+                    Memory.Write(baseAddress + 0x51F7D8,intensoChunks);
+                    Memory.Write(Helpers.GetSaveDataFlag(address2),intensoChunks);
+                    Log.Logger.Debug($"Intenso Chunk {intensoChunks % 3} / 3 (Total {intensoChunks})");
+                    Log.Logger.Debug($"New Intenso {70 + addIntenso}");
+                }
+
+                else if(category == "500 Gold Coins") {
+                    var curGold = Memory.ReadUInt(baseAddress + address);
+                    Memory.Write(baseAddress + address, Math.Max(curGold - 500, 0));
+                    Log.Logger.Debug($"Removing gold ({curGold} -> {Math.Max(curGold - 500, 0)})");
+                }
+
+                else if (category == "5000 Gold Coins") {
+                    var curGold = Memory.ReadUInt(baseAddress + address);
+                    Memory.Write(baseAddress + address, Math.Max(curGold - 5000, 0));
+                    Log.Logger.Debug($"Removing gold ({curGold} -> {Math.Max(curGold - 5000, 0)})");
+                }
+
+                else if (category == "5 Silver Coins") {
+                    var curGold = Memory.ReadUInt(baseAddress + address);
+                    Memory.Write(baseAddress + address, Math.Max(curGold - 5, 0));
+                    Log.Logger.Debug($"Removing silver ({curGold} -> {Math.Max(curGold - 5, 0)})");
+                }
+            }
+        }
+
+        private void Client_MessageReceived(object? sender, MessageReceivedEventArgs e) {
             if (e.Message.Parts.Any(x => x.Text == "[Hint]: "))
             {
                 LogHint(e.Message);
@@ -249,10 +320,8 @@ namespace MyGameAP {
                 new TextSpan(){Text = $"{item.Name}", TextColor = Color.FromRgb(200, 255, 200)},
                 new TextSpan(){Text = $"x{item.Quantity.ToString()}", TextColor = Color.FromRgb(200, 255, 200)}
             });
-            lock (_lockObject)
-            {
-                Application.Current.Dispatcher.DispatchAsync(() =>
-                {
+            lock (_lockObject) {
+                Application.Current.Dispatcher.DispatchAsync(() => {
                     Context.ItemList.Add(messageToLog);
                 });
             }

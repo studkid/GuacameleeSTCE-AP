@@ -6,25 +6,32 @@ using System.Reflection;
 
 namespace MyGameAP {
     public class Helpers {
-        public static List<Archipelago.Core.Models.Location> GetLocations() {
-            List<Archipelago.Core.Models.Location> locations = new List<Archipelago.Core.Models.Location>();
+        public static List<GuacameleeLocation> GetGuacameleeLocations() {
+            List<GuacameleeLocation> locations = new List<GuacameleeLocation>();
             locations.AddRange(GetChestLocations());
             return locations;
         }
 
-        public static List<Archipelago.Core.Models.Location> GetChestLocations() {
+        public static List<Archipelago.Core.Models.Location> GetLocations(List<GuacameleeLocation> list) {
             List<Archipelago.Core.Models.Location> locations = new List<Archipelago.Core.Models.Location>();
-            var json = OpenEmbeddedResource("GuacameleeAP.Resources.Chests.json");
-            var list = JsonConvert.DeserializeObject<List<GuacameleeChest>>(json);
-
-            foreach(var loc in list) {
+            foreach (var loc in list) {
                 locations.Add(new Archipelago.Core.Models.Location {
                     Name = loc.Name,
                     Id = loc.Id,
                     CheckType = loc.CheckType,
-                    Address = (ulong)GetChestFlag(loc.Address),
+                    Address = loc.Address,
                     AddressBit = loc.AddressBit
                 });
+            }
+            return locations;
+        }
+
+        public static List<GuacameleeLocation> GetChestLocations() {
+            var json = OpenEmbeddedResource("GuacameleeAP.Resources.Chests.json");
+            var locations = JsonConvert.DeserializeObject<List<GuacameleeLocation>>(json);
+
+            foreach (var loc in locations) {
+                loc.Address = GetChestFlag(loc.Address);
             }
             return locations;
         }

@@ -5,7 +5,7 @@
     "Address": "0x047F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "ToR: Near Entrance Omlec Chest",
@@ -13,7 +13,7 @@
     "Address": "0x04C3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
   {
     "Name": "ToR: Omlec Wing Standalone Chest",
@@ -21,7 +21,7 @@
     "Address": "0x0507",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "ToR: Near Entrance Jump Puzzle Chest",
@@ -29,7 +29,7 @@
     "Address": "0x054B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "ToR: Heart Chest Room 4",
@@ -77,7 +77,7 @@
     "Address": "0x06E3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "ToR: Shortcut Chest",
@@ -85,7 +85,7 @@
     "Address": "0x0727",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "ToR: Before Alebrije Chase Chest",
@@ -93,7 +93,7 @@
     "Address": "0x076B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "ToR: After Alebrije Chase Chest",
@@ -101,7 +101,7 @@
     "Address": "0x07AF",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "ToR: Near Luchita Chest",
@@ -109,7 +109,7 @@
     "Address": "0x07F3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
 
   {
@@ -118,7 +118,7 @@
     "Address": "0x0D87",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "FdC: Lower Pollo Chest",
@@ -126,7 +126,7 @@
     "Address": "0x0DCB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "FdC: Near Chivo Store Chest",
@@ -134,7 +134,7 @@
     "Address": "0x0E53",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "FdC: Alcove Near Luchita Chest",
@@ -142,7 +142,7 @@
     "Address": "0x0E97",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "FdC: Main Shaft Red Challenge Chest",
@@ -150,7 +150,7 @@
     "Address": "0x0EDB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "FdC: Main Shaft Yellow Challenge Chest",
@@ -158,7 +158,7 @@
     "Address": "0x0F1F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "FdC: Main Shaft Blue Challenge Chest",
@@ -166,7 +166,7 @@
     "Address": "0x0F63",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "FdC: Near Tule Tree Chest",
@@ -174,7 +174,7 @@
     "Address": "0x0FA7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "FdC: Chivo Alcove Chest",
@@ -182,7 +182,7 @@
     "Address": "0x0FEB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "FdC: Chivo Pollo Chest",
@@ -190,7 +190,7 @@
     "Address": "0x102F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "FdC: Main Shaft Green Challenge Chest",
@@ -198,7 +198,7 @@
     "Address": "0x1073",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "FdC: Skull Lever Chest",
@@ -206,7 +206,7 @@
     "Address": "0x10B7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "FdC: High Platform Chest",
@@ -214,7 +214,7 @@
     "Address": "0x10FB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
 
 
@@ -224,7 +224,7 @@
     "Address": "0x197B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "TT: 5F Inside Chest",
@@ -232,7 +232,7 @@
     "Address": "0x19BF",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "TTP: 9F Outside Chest",
@@ -240,7 +240,7 @@
     "Address": "0x1A03",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "TT: 12F Fight Chest",
@@ -248,7 +248,7 @@
     "Address": "0x1A47",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
   {
     "Name": "TT: 12F Pollo Chest",
@@ -256,7 +256,7 @@
     "Address": "0x1ACF",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "TT: 12F Jump Puzzle Chest",
@@ -264,7 +264,7 @@
     "Address": "0x1A8B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "TT: 6F Outside Chest",
@@ -272,7 +272,7 @@
     "Address": "0x1B13",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "TT: 13F Outside Chest",
@@ -280,7 +280,7 @@
     "Address": "0x1B57",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
 
   {
@@ -289,7 +289,7 @@
     "Address": "0x1FDB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Intenso Chest"
+    "Category": "Intenso Chunk"
   },
   {
     "Name": "SM: Near Luchita Chest",
@@ -297,7 +297,7 @@
     "Address": "0x201F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "SM: Dimension Swap Climb Chest",
@@ -305,7 +305,7 @@
     "Address": "0x2063",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "SM: Near Lower Pico De Gallo Chest",
@@ -313,7 +313,7 @@
     "Address": "0x20A7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "SM: Hidden Goat Fly Chest",
@@ -321,7 +321,7 @@
     "Address": "0x20EB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
   {
     "Name": "SM: Hidden Goat Fly And Climb Chest",
@@ -329,7 +329,7 @@
     "Address": "0x212F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Intenso Chest"
+    "Category": "Intenso Chunk"
   },
   {
     "Name": "SM: Near Great Temple Lower Chest",
@@ -337,7 +337,7 @@
     "Address": "0x2173",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "SM: Near Great Temple Upper Chest",
@@ -345,7 +345,7 @@
     "Address": "0x21B7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
 
   {
@@ -354,7 +354,7 @@
     "Address": "0x267F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "Pb: Pollo Chest",
@@ -362,7 +362,7 @@
     "Address": "0x26C3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Intenso Chest"
+    "Category": "Intenso Chunk"
   },
   {
     "Name": "Pb: X’tabay Chest",
@@ -370,7 +370,7 @@
     "Address": "0x2707",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "Pb: Inside Church Chest",
@@ -378,7 +378,7 @@
     "Address": "0x274B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
 
   {
@@ -387,7 +387,7 @@
     "Address": "0x2B8B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "GT: Near Entrance Jump Puzzle Chest",
@@ -395,7 +395,7 @@
     "Address": "0x2BCF",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Intenso Chest"
+    "Category": "Intenso Chunk"
   },
   {
     "Name": "GT: Goat Fly Puzzle Chest",
@@ -403,7 +403,7 @@
     "Address": "0x2C13",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "GT: Pollo Hole Chest",
@@ -411,7 +411,7 @@
     "Address": "0x2C57",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Intenso Chest"
+    "Category": "Intenso Chunk"
   },
   {
     "Name": "GT: Alux Fight Chest",
@@ -419,7 +419,7 @@
     "Address": "0x2C9B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "GT: Barrel Room Near Sierra Chest",
@@ -427,7 +427,7 @@
     "Address": "0x2CDF",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "GT: Warp Maze Chest",
@@ -435,7 +435,7 @@
     "Address": "0x2D22",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
 
   {
@@ -444,7 +444,7 @@
     "Address": "0x32B7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "ToW: Pollo Hole Chest",
@@ -452,7 +452,7 @@
     "Address": "0x32FB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "ToW: Cactus Jump Puzzle Chest",
@@ -460,7 +460,7 @@
     "Address": "0x333F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "ToW: After Flame Face Chest",
@@ -468,7 +468,7 @@
     "Address": "0x3383",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "ToW: Goat Climb Chute Chest",
@@ -476,7 +476,7 @@
     "Address": "0x33C7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "ToW: Wall Slide Puzzle Chest",
@@ -484,7 +484,7 @@
     "Address": "0x340B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "ToW: Blue Block Jump Puzzle Chest",
@@ -492,7 +492,7 @@
     "Address": "0x344F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "ToW: Halfway Blue Block Chest",
@@ -500,7 +500,7 @@
     "Address": "0x3493",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "ToW: Cactus Exploder Fight Chest",
@@ -508,7 +508,7 @@
     "Address": "0x34D7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "ToW: Upper Side Room Chest",
@@ -516,7 +516,7 @@
     "Address": "0x351B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "ToW: Upper Jump Puzzle Chest",
@@ -524,7 +524,7 @@
     "Address": "0x355F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Intenso Chest"
+    "Category": "Intenso Chunk"
   },
   {
     "Name": "ToW: Entrance Pollo Bomba Chest",
@@ -532,7 +532,7 @@
     "Address": "0x35A3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
 
   {
@@ -541,7 +541,7 @@
     "Address": "0x377F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "CdP: Challenge 2 Left Chest",
@@ -549,7 +549,7 @@
     "Address": "0x37C3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "CdP: Challenge 2 Right Chest",
@@ -557,7 +557,7 @@
     "Address": "0x3807",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
 
   {
@@ -566,7 +566,7 @@
     "Address": "0x3917",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
 
   {
@@ -575,7 +575,7 @@
     "Address": "0x3B37",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
 
   {
@@ -584,7 +584,7 @@
     "Address": "0x432F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "SL: Lower Inn Chest",
@@ -592,7 +592,7 @@
     "Address": "0x4373",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "SL: Hernandos Chest",
@@ -600,7 +600,7 @@
     "Address": "0x43B7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "SL: Hernandos Pollo Chest",
@@ -608,7 +608,7 @@
     "Address": "0x43FB",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
   {
     "Name": "SL: Near Caverna Chest",
@@ -616,7 +616,7 @@
     "Address": "0x443F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
 
   {
@@ -625,7 +625,7 @@
     "Address": "0x498F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Near Forest Right Chest",
@@ -633,7 +633,7 @@
     "Address": "0x49D3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Path To Bridge Chest",
@@ -641,7 +641,7 @@
     "Address": "0x4A17",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Pollo Bomba West Of Town Chest",
@@ -649,7 +649,7 @@
     "Address": "0x4A5B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Pollo Dimension Maze Chest",
@@ -657,7 +657,7 @@
     "Address": "0x4A9F",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Pollo Hole Chest",
@@ -665,7 +665,7 @@
     "Address": "0x4AE3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Town Chest",
@@ -673,7 +673,7 @@
     "Address": "0x4B27",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Near Choozo Chest",
@@ -681,7 +681,7 @@
     "Address": "0x4B6B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "CdlF: Above Town Chest",
@@ -689,7 +689,7 @@
     "Address": "0x4BAF",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "CdlF: East Of Town Chest",
@@ -697,7 +697,7 @@
     "Address": "0x4BF3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "CdlF: Right Of Ferry Chest",
@@ -705,7 +705,7 @@
     "Address": "0x4C37",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Health Chest"
+    "Category": "Health Chunk"
   },
   {
     "Name": "CdlF: Above Ferry Chest",
@@ -713,7 +713,7 @@
     "Address": "0x4C7B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: West Of Town Chest",
@@ -721,7 +721,7 @@
     "Address": "0x4CBF",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Near Pico De Gallo Chest",
@@ -729,7 +729,7 @@
     "Address": "0x4D03",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "CdlF: Bridge Jump Puzzle Chest",
@@ -737,7 +737,7 @@
     "Address": "0x4D47",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Stamina Chest"
+    "Category": "Stamina Chunk"
   },
   {
     "Name": "CdlF: Above Bridge Chest",
@@ -745,7 +745,7 @@
     "Address": "0x4D8B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
   {
     "Name": "CdlF: Clubhouse Bottom Left Chest",
@@ -753,7 +753,7 @@
     "Address": "0x1265",
     "CheckType": "FalseBit",
     "AddressBit": 0,
-    "Category": "Silver Chest"
+    "Category": "5 Silver Coins"
   },
 
   {
@@ -762,7 +762,7 @@
     "Address": "0x57A3",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "PdG: Chute Chest",
@@ -770,7 +770,7 @@
     "Address": "0x57E7",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
   },
   {
     "Name": "PdG: Outside Above Entrance Chest",
@@ -778,6 +778,134 @@
     "Address": "0x582B",
     "CheckType": "Bit",
     "AddressBit": 0,
-    "Category": "500 Coin Chest"
+    "Category": "500 Gold Coins"
+  },
+  {
+    "Name": "DC: Near Tule Tree Chest",
+    "Id": 601, 
+    "Address": "0x60EF", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Health Chunks"
+  },
+  {
+    "Name": "DC: Near Luchita Chest",
+    "Id": 602, 
+    "Address": "0x6133", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "500 Gold Coins"
+  },
+  {
+    "Name": "DC: Chupacabra Pollo Hole Chest",
+    "Id": 603, 
+    "Address": "0x6177", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Health Chunks"
+  },
+  {
+    "Name": "DC: Chupacabra Mound Chest",
+    "Id": 604, 
+    "Address": "0x61BB", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "500 Gold Coins"
+  },
+  {
+    "Name": "DC: Dimension Swap Platform Chest",
+    "Id": 605, 
+    "Address": "0x61FF", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Health Chunks"
+  },
+  {
+    "Name": "DC: Under Overhang Chest",
+    "Id": 606, 
+    "Address": "0x6243", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Health Chunks"
+  },
+  {
+    "Name": "DC: Above Overhang Chest",
+    "Id": 607, 
+    "Address": "0x6287", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "5 Silver Coins"
+  },
+  {
+    "Name": "DC: Near Temple Of War Chest",
+    "Id": 608, 
+    "Address": "0x62CB", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "500 Gold Coins"
+  },
+  {
+    "Name": "DC: Pollo Above Shield Intro Chest",
+    "Id": 609, 
+    "Address": "0x630F", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "500 Gold Coins"
+  },
+  {
+    "Name": "DC: Central Room Left Chest",
+    "Id": 610, 
+    "Address": "0x6353", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "500 Gold Coins"
+  },
+  {
+    "Name": "DC: Central Room Right Chest",
+    "Id": 611, 
+    "Address": "0x6397", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Health Chunks"
+  },
+  {
+    "Name": "DC: Before Pollo Maze Lower Chest",
+    "Id": 612, 
+    "Address": "0x63DB", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Intenso Chunk"
+  },
+  {
+    "Name": "DC: Before Pollo Maze Upper Chest",
+    "Id": 613, 
+    "Address": "0x641F", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Health Chunks"
+  },
+  {
+    "Name": "DC: Pollo Below Shield Intro Chest",
+    "Id": 614, 
+    "Address": "0x6463", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Stamina Chunks"
+  },
+  {
+    "Name": "EI: Silver Room Chest",
+    "Id": 651, 
+    "Address": "0x791B", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "5000 Gold Coin"
+  },
+  {
+    "Name": "EI: Bronze Room Chest",
+    "Id": 652, 
+    "Address": "0x795F", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "5000 Gold Coins"
   }
 ]
