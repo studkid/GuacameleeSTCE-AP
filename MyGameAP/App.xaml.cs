@@ -19,9 +19,10 @@ namespace MyGameAP {
         private static readonly object _lockObject = new object();
         private static List<GuacameleeItem> guacameleeItems { get; set; }
         private static uint baseAddress = 0x00400000;
-        private static int healthChunks = 0;
-        private static int staminaChunks = 0;
-        private static int intensoChunks = 0;
+        private static float healthChunks = 0;
+        private static float staminaChunks = 0;
+        private static float intensoChunks = 0;
+        private static int progKick = 0;
 
         public App() {
             InitializeComponent();
@@ -94,7 +95,7 @@ namespace MyGameAP {
             }
 
             //Enable stamina bar
-            Memory.WriteBit(baseAddress + 0x511654, 4, true);
+            Memory.WriteBit(Helpers.GetSaveDataFlag(0x0020), 0, true);
         }
 
         private void _deathlinkService_OnDeathLinkReceived(DeathLink deathLink) {
@@ -122,6 +123,8 @@ namespace MyGameAP {
                 healthChunks += quantity;
                 float addHealth = 20 * (float)Math.Floor((double)healthChunks / 3);
                 Memory.Write(Helpers.GetHealthFlag(address), 80 + addHealth);
+                Memory.Write(baseAddress + 0x51F7B0,healthChunks);
+                Memory.Write(Helpers.GetSaveDataFlag(address2),healthChunks);
                 Log.Logger.Information($"Health Chunk {healthChunks % 3} / 3 (Total {healthChunks})");
                 Log.Logger.Debug($"New Health {80 + addHealth}");
             }
@@ -130,9 +133,10 @@ namespace MyGameAP {
                 staminaChunks += quantity;
                 float addStamina = (float)Math.Floor((double)staminaChunks / 3);
                 Memory.Write(Helpers.GetStaminaFlag(address),2 + addStamina);
+                Memory.Write(baseAddress + 0x51F7D0,staminaChunks);
+                Memory.Write(Helpers.GetSaveDataFlag(address2),staminaChunks);
                 Log.Logger.Information($"Stamina Chunk {staminaChunks % 3} / 3 (Total {staminaChunks})");
                 Log.Logger.Debug($"New Stamina {2 + addStamina}");
-                Memory.FreezeAddress(Helpers.GetStaminaFlag(address), 1);
             }
 
             else if(category == "Intenso") {
@@ -140,6 +144,8 @@ namespace MyGameAP {
                 var newAddress = baseAddress + address;
                 float addIntenso = 10 * (float)Math.Floor((double)intensoChunks / 3);
                 Memory.Write(newAddress, 70 + addIntenso);
+                Memory.Write(baseAddress + 0x51F7D8,intensoChunks);
+                Memory.Write(Helpers.GetSaveDataFlag(address2),intensoChunks);
                 Log.Logger.Information($"Intenso Chunk {intensoChunks % 3} / 3 (Total {intensoChunks})");
                 Log.Logger.Debug($"New Intenso {70 + addIntenso}");
             }
@@ -150,18 +156,51 @@ namespace MyGameAP {
                 if (address2 != 0 || name == "Goat Jump") {
                     Memory.WriteBit(Helpers.GetSaveDataFlag(address2),bit,true);
                 }
+
+                if(name == "Grab Ability") {
+                    Memory.WriteBit(baseAddress + 511654,3,true);
+                }
+            }
+
+            else if (category == "FalsePower") {
+                Log.Logger.Debug($"Adding {name}");
+                Memory.WriteBit(Helpers.GetPowerFlag(address),bit,false);
+                Memory.WriteBit(Helpers.GetSaveDataFlag(address2),bit,false);
             }
 
             else if(category == "Pollo") {
                 Memory.WriteBit(Helpers.GetPolloFlag(address),bit,true);
                 if (name == "Pollo Power") {
                     Memory.WriteBit(Helpers.GetPowerFlag(address2),bit,true);
+                    Memory.WriteBit(Helpers.GetSaveDataFlag(0xF0),bit,true);
+                    Memory.WriteBit(Helpers.GetSaveDataFlag(0x140),bit,true);
                 }
-                //else {
-                //    Memory.WriteBit(Helpers.GetPolloFlag(address2),bit,true);
-                //}
+                else if(name == "Pollo Fly") {
+                    Memory.Write(Helpers.GetSaveDataFlag(address2),0x47C34F80);
+                }
+                else {
+                    Memory.WriteBit(Helpers.GetSaveDataFlag(address2),bit,true);
+                }
 
                 Log.Logger.Debug($"Adding {name}");
+            }
+
+            else if (category == "Kick") {
+                progKick =+ quantity;
+                if(progKick == 1) {
+                    var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == 27);
+                    if (itemToReceive != null) {
+                        Log.Logger.Debug($"New Kick State: {itemToReceive.Name} ({itemToReceive.Id})");
+                        AddItem(itemToReceive.Name,itemToReceive.Category,itemToReceive.Address,itemToReceive.SaveAddress,itemToReceive.AddressBit);
+                    }
+                }
+                else if (progKick == 2) {
+                    var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == 28);
+                    if (itemToReceive != null) {
+                        Log.Logger.Debug($"New Kick State: {itemToReceive.Name} ({itemToReceive.Id})");
+                        AddItem(itemToReceive.Name,itemToReceive.Category,itemToReceive.Address,itemToReceive.SaveAddress,itemToReceive.AddressBit);
+                    }
+                }
             }
 
             else if (category == "Save") {
@@ -169,8 +208,8 @@ namespace MyGameAP {
                 Memory.WriteBit(Helpers.GetSaveDataFlag(address),bit,true);
             }
 
-            else if(category == "Money") {
-                if(name == "500 Gold Coins") {
+            else if (category == "Money") {
+                if (name == "500 Gold Coins") {
                     var curGold = Memory.ReadUInt(baseAddress + address);
                     Memory.Write(baseAddress + address,curGold + 500);
                     Log.Logger.Debug($"Adding gold ({curGold} -> {curGold + 500})");
@@ -187,7 +226,7 @@ namespace MyGameAP {
                 }
             }
 
-            else if(category == "Trap") {
+            else if (category == "Trap") {
                 //LagTrap lag = new LagTrap();
                 //lag.Start();
 

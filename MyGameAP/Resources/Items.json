@@ -3,7 +3,7 @@
     "Name": "Omlec Headbutt",
     "Id": 1,
     "Address": "0x3A3",
-    "SaveAddress": "0",
+    "SaveAddress": "0xA0",
     "AddressBit": 0,
     "Category": "Power"
   },
@@ -11,7 +11,7 @@
     "Name": "Dashing Derp Derp",
     "Id": 2,
     "Address": "0x683",
-    "SaveAddress": "0",
+    "SaveAddress": "0x90",
     "AddressBit": 0,
     "Category": "Power"
   },
@@ -27,7 +27,7 @@
     "Name": "Frog Slam",
     "Id": 4,
     "Address": "0x73C3",
-    "SaveAddress": "0",
+    "SaveAddress": "0xB0",
     "AddressBit": 0,
     "Category": "Power"
   },
@@ -43,7 +43,7 @@
     "Name": "Pollo Bomba",
     "Id": 6,
     "Address": "0x1AA3",
-    "SaveAddress": "0",
+    "SaveAddress": "0x180",
     "AddressBit": 0,
     "Category": "Pollo"
   },
@@ -83,7 +83,7 @@
     "Name": "Goat Climb",
     "Id": 11,
     "Address": "0x9923",
-    "SaveAddress": "0",
+    "SaveAddress": "0xD0",
     "AddressBit": 0,
     "Category": "Power"
   },
@@ -91,7 +91,7 @@
     "Name": "Goat Fly",
     "Id": 12,
     "Address": "0x9643",
-    "SaveAddress": "0",
+    "SaveAddress": "0xC0",
     "AddressBit": 0,
     "Category": "Power"
   },
@@ -99,7 +99,7 @@
     "Name": "Pollo Fly",
     "Id": 13,
     "Address": "0",
-    "SaveAddress": "0",
+    "SaveAddress": "0x690",
     "AddressBit": 0,
     "Category": "Pollo"
   },
@@ -107,7 +107,7 @@
     "Name": "Health Chunk",
     "Id": 14,
     "Address": "0x1A8",
-    "SaveAddress": "0",
+    "SaveAddress": "0x490",
     "AddressBit": 0,
     "Category": "Health"
   },
@@ -115,7 +115,7 @@
     "Name": "Stamina Chunk",
     "Id": 15,
     "Address": "0x150",
-    "SaveAddress": "0",
+    "SaveAddress": "0x480",
     "AddressBit": 0,
     "Category": "Stamina"
   },
@@ -123,17 +123,17 @@
     "Name": "Intenso Chunk",
     "Id": 16,
     "Address": "0x51F4A4",
-    "SaveAddress": "0",
+    "SaveAddress": "0x4F0",
     "AddressBit": 0,
     "Category": "Intenso"
   },
   {
-    "Name": "Orb Chunk",
+    "Name": "Orb",
     "Id": 17,
-    "Address": "0",
+    "Address": "0x400",
     "SaveAddress": "0",
     "AddressBit": 0,
-    "Category": "Simple"
+    "Category": "Save"
   },
   {
     "Name": "500 Gold Coins",
@@ -160,8 +160,72 @@
     "Category": "Money"
   },
   {
-    "Name": "Enemy Trap",
+    "Name": "Grab Ability",
     "Id": 21,
+    "Address": "0x45C3",
+    "SaveAddress": "0x190",
+    "AddressBit": 0,
+    "Category": "Power"
+  },
+  {
+    "Name": "Dodge",
+    "Id": 22,
+    "Address": "0x511654",
+    "SaveAddress": "0x10",
+    "AddressBit": 0,
+    "Category": "Simple"
+  },
+  {
+    "Name": "3 Punch Combo",
+    "Id": 23,
+    "Address": "0xA783",
+    "SaveAddress": "0x220",
+    "AddressBit": 0,
+    "Category": "FalsePower"
+  },
+  {
+    "Name": "Luchador Lift",
+    "Id": 24,
+    "Address": "0x0C43",
+    "SaveAddress": "0x60",
+    "AddressBit": 0,
+    "Category": "Power"
+  },
+  {
+    "Name": "Downercut",
+    "Id": 25,
+    "Address": "0x2BE3",
+    "SaveAddress": "0x70",
+    "AddressBit": 0,
+    "Category": "Power"
+  },
+  {
+    "Name": "Progressive Kick",
+    "Id": 26,
+    "Address": "0",
+    "SaveAddress": "0",
+    "AddressBit": 0,
+    "Category": "Kick"
+  },
+  {
+    "Name": "Luchador Kick",
+    "Id": 27,
+    "Address": "0x1D83",
+    "SaveAddress": "0x190",
+    "AddressBit": 0,
+    "Category": "Power"
+  },
+  {
+    "Name": "3 Kick Combo",
+    "Id": 28,
+    "Address": "0x400",
+    "SaveAddress": "0x230",
+    "AddressBit": 0,
+    "Category": "FalsePower"
+  },
+  {
+    "Name": "Enemy Trap",
+    "Id": 50,
     "Address": "0",
     "SaveAddress": "0",
     "AddressBit": 0,
