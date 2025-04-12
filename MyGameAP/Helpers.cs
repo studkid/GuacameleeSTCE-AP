@@ -14,7 +14,13 @@ namespace MyGameAP {
 
         public static List<Archipelago.Core.Models.Location> GetLocations(List<GuacameleeLocation> list) {
             List<Archipelago.Core.Models.Location> locations = new List<Archipelago.Core.Models.Location>();
+            var foundLocations = App.Client.CurrentSession.Locations.AllLocationsChecked;
             foreach (var loc in list) {
+                Log.Logger.Verbose($"{loc.Name} {foundLocations.Contains((long)loc.Id)}");
+                if(foundLocations.Contains((long)loc.Id)) {
+                    continue;
+                }
+
                 locations.Add(new Archipelago.Core.Models.Location {
                     Name = loc.Name,
                     Id = loc.Id,

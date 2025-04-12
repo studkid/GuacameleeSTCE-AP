@@ -74,11 +74,11 @@ namespace MyGameAP {
             Client.MessageReceived += Client_MessageReceived;
             Client.LocationCompleted += Client_LocationCompleted;
 
+            await Client.Login(e.Slot,!string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
+
             guacameleeLocations = Helpers.GetGuacameleeLocations();
             var apLocations = Helpers.GetLocations(guacameleeLocations);
             guacameleeItems = Helpers.GetItems();
-
-            await Client.Login(e.Slot,!string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
 
             //if (Client.Options.ContainsKey("EnableDeathlink") && (bool)Client.Options["EnableDeathlink"]) {
             //    var _deathlinkService = Client.EnableDeathLink();
@@ -93,12 +93,12 @@ namespace MyGameAP {
 
             Context.ConnectButtonEnabled = true;
 
-            foreach(Item item in Client.GameState.ReceivedItems) {
-                var itemToAdd = guacameleeItems[(int)item.Id - 1];
-                if(itemToAdd.Category != "Money" && itemToAdd.Category != "Enemy Trap") {
-                    AddItem(itemToAdd.Name, itemToAdd.Category, itemToAdd.Address, itemToAdd.SaveAddress, itemToAdd.AddressBit, item.Quantity);
-                }
-            }
+            //foreach(Item item in Client.GameState.ReceivedItems) {
+            //    var itemToAdd = guacameleeItems[(int)item.Id - 1];
+            //    if(itemToAdd.Category != "Money" && itemToAdd.Category != "Enemy Trap") {
+            //        AddItem(itemToAdd.Name, itemToAdd.Category, itemToAdd.Address, itemToAdd.SaveAddress, itemToAdd.AddressBit, item.Quantity);
+            //    }
+            //}
 
             //Enable stamina bar
             Memory.WriteBit(Helpers.GetSaveDataFlag(0x0020), 0, true);
@@ -299,8 +299,8 @@ namespace MyGameAP {
 
                 else if (category == "5 Silver Coins") {
                     var curGold = Memory.ReadUInt(baseAddress + address);
-                    Memory.Write(baseAddress + address, Math.Max(curGold - 5, 0));
-                    Log.Logger.Debug($"Removing silver ({curGold} -> {Math.Max(curGold - 5, 0)})");
+                    Memory.Write(baseAddress + address, Math.Max((int)curGold - 5, 0));
+                    Log.Logger.Debug($"Removing silver ({curGold} -> {Math.Max((int)curGold - 5, 0)})");
                 }
             }
         }

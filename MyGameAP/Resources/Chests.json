@@ -749,7 +749,7 @@
   },
   {
     "Name": "CdlF: Clubhouse Bottom Left Chest",
-    "Id": 586,
+    "Id": 518,
     "Address": "0x1265",
     "CheckType": "FalseBit",
     "AddressBit": 0,
