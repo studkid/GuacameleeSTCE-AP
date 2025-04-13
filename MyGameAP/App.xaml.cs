@@ -23,10 +23,13 @@ namespace MyGameAP {
         private static List<GuacameleeItem> guacameleeItems { get; set; }
         private static List<GuacameleeLocation> guacameleeLocations { get; set; }
         private static uint baseAddress = 0x00400000;
+
         private static float healthChunks = 0;
         private static float staminaChunks = 0;
         private static float intensoChunks = 0;
         private static int progKick = 0;
+
+        private static string currentMap = "";
 
         public App() {
             InitializeComponent();
@@ -74,11 +77,13 @@ namespace MyGameAP {
             Client.MessageReceived += Client_MessageReceived;
             Client.LocationCompleted += Client_LocationCompleted;
 
+            guacameleeItems = Helpers.GetItems();
+
             await Client.Login(e.Slot,!string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
 
             guacameleeLocations = Helpers.GetGuacameleeLocations();
+            Helpers.UpdateLocationState(guacameleeLocations);
             var apLocations = Helpers.GetLocations(guacameleeLocations);
-            guacameleeItems = Helpers.GetItems();
 
             //if (Client.Options.ContainsKey("EnableDeathlink") && (bool)Client.Options["EnableDeathlink"]) {
             //    var _deathlinkService = Client.EnableDeathLink();
@@ -102,6 +107,8 @@ namespace MyGameAP {
 
             //Enable stamina bar
             Memory.WriteBit(Helpers.GetSaveDataFlag(0x0020), 0, true);
+
+            //await Memory.MonitorAddressForAction<String>(Helpers.GetMapAddress(), () => OnMapChange(), (map) => Memory.ReadString(Helpers.GetMapAddress(),999) != currentMap);
         }
 
         private void _deathlinkService_OnDeathLinkReceived(DeathLink deathLink) {
@@ -346,6 +353,12 @@ namespace MyGameAP {
                     Context.HintList.Add(new LogListItem(spans));
                 });
             }
+        }
+
+        private static void OnMapChange() {
+            currentMap = Memory.ReadString(Helpers.GetMapAddress(),999);
+
+            Log.Logger.Debug($"Map Updating to {currentMap}");
         }
 
         private static void OnConnected(object sender, EventArgs args) {

@@ -216,7 +216,14 @@
     "AddressBit": 0,
     "Category": "500 Gold Coins"
   },
-
+  {
+    "Name": "FdC: Near Canal Chest",
+    "Id": 64, 
+    "Address": "0x0E0F", 
+    "CheckType": "Bit", 
+    "AddressBit": 0, 
+    "Category": "Health Chunk"
+  },
 
   {
     "Name": "TT: 4F Outside Chest",
@@ -748,10 +755,26 @@
     "Category": "5 Silver Coins"
   },
   {
+    "Name": "CdlF: Clubhouse Top Chest",
+    "Id": 517,
+    "Address": "0x4E57",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "5 Silver Coins"
+  },
+  {
     "Name": "CdlF: Clubhouse Bottom Left Chest",
     "Id": 518,
-    "Address": "0x1265",
-    "CheckType": "FalseBit",
+    "Address": "0x4DCF",
+    "CheckType": "Bit",
+    "AddressBit": 0,
+    "Category": "5 Silver Coins"
+  },
+  {
+    "Name": "CdlF: Clubhouse Bottom Right Chest",
+    "Id": 519,
+    "Address": "0x4E13",
+    "CheckType": "Bit",
     "AddressBit": 0,
     "Category": "5 Silver Coins"
   },

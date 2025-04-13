@@ -57,6 +57,19 @@ namespace MyGameAP {
             }
         }
 
+        public static void UpdateLocationState(List<GuacameleeLocation> list) {
+            var foundLocations = App.Client.CurrentSession.Locations.AllLocationsChecked;
+            foreach (GuacameleeLocation loc in list) {
+                Memory.WriteBit(loc.Address, 0, foundLocations.Contains((long)loc.Id));
+            }
+            
+            // Chest pos fixes
+            Memory.Write(GetChestFlag(0x0DE4),-193); 
+            Memory.Write(GetChestFlag(0x4E30),76);
+            Memory.Write(GetChestFlag(0x4DA8),76);
+            Memory.Write(GetChestFlag(0x4DEC),76);
+        }
+
         // [[game.exe + 50CC04] + B4] + X
         public static uint GetChestFlag(uint address) {
             uint baseAddress = 0x00400000;
@@ -132,6 +145,17 @@ namespace MyGameAP {
             var pointer1 = Memory.ReadUInt(initialAddress);
             var pointer2 = Memory.ReadUInt(pointer1 + 0x0);
             var result = pointer2 + address;
+            return result;
+        }
+
+        // [[game.exe + 0051E7A4] + 108] + 4
+        public static uint GetMapAddress() {
+            uint baseAddress = 0x00400000;
+            uint initialAddress = baseAddress + 0x0051E7A4;
+
+            var pointer1 = Memory.ReadUInt(initialAddress);
+            var pointer2 = Memory.ReadUInt(pointer1 + 0x108);
+            var result = pointer2 + 0x4;
             return result;
         }
     }
