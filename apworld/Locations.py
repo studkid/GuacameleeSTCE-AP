@@ -170,4 +170,12 @@ location_table: List[GuacLocation] = {
     # El Infierno 651-700
     GuacLocationData(651,"EI","Silver Room Chest","chest"),
     GuacLocationData(652,"EI","Bronze Room Chest","chest"),
+
+    # ChacMool Orbs 701-750
+    GuacLocationData(701, "ChacMool", "Caverna Orb", "orb"),
+    GuacLocationData(702, "ChacMool", "Sierra Orb", "orb"),
+    GuacLocationData(703, "ChacMool", "Forest del Chivo Orb", "orb"),
+    GuacLocationData(704, "ChacMool", "Tule Tree Orb", "orb"),
+    GuacLocationData(705, "ChacMool", "Agave Field Orb", "orb"),
+    GuacLocationData(706, "ChacMool", "Infierno Orb", "orb"),
 }
