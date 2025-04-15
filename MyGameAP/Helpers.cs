@@ -9,6 +9,7 @@ namespace MyGameAP {
         public static List<GuacameleeLocation> GetGuacameleeLocations() {
             List<GuacameleeLocation> locations = new List<GuacameleeLocation>();
             locations.AddRange(GetChestLocations());
+            locations.AddRange(GetOrbLocations());
             return locations;
         }
 
@@ -42,6 +43,16 @@ namespace MyGameAP {
             return locations;
         }
 
+        public static List<GuacameleeLocation> GetOrbLocations() {
+            var json = OpenEmbeddedResource("GuacameleeAP.Resources.Orbs.json");
+            var locations = JsonConvert.DeserializeObject<List<GuacameleeLocation>>(json);
+
+            foreach (var loc in locations) {
+                loc.Address = GetSaveDataFlag(loc.Address);
+            }
+            return locations;
+        }
+
         public static List<GuacameleeItem> GetItems() {
             var json = OpenEmbeddedResource("GuacameleeAP.Resources.Items.json");
             var list = JsonConvert.DeserializeObject<List<GuacameleeItem>>(json);
@@ -58,10 +69,10 @@ namespace MyGameAP {
         }
 
         public static void UpdateLocationState(List<GuacameleeLocation> list) {
-            var foundLocations = App.Client.CurrentSession.Locations.AllLocationsChecked;
-            foreach (GuacameleeLocation loc in list) {
-                Memory.WriteBit(loc.Address, 0, foundLocations.Contains((long)loc.Id));
-            }
+            //var foundLocations = App.Client.CurrentSession.Locations.AllLocationsChecked;
+            //foreach (GuacameleeLocation loc in list) {
+            //    Memory.WriteBit(loc.Address, 0, foundLocations.Contains((long)loc.Id));
+            //}
             
             // Chest pos fixes
             Memory.Write(GetChestFlag(0x0DE4),-193); 
