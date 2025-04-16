@@ -27,7 +27,6 @@ namespace MyGameAP {
         private static float healthChunks = 0;
         private static float staminaChunks = 0;
         private static float intensoChunks = 0;
-        private static int progKick = 0;
 
         private static string currentMap = "";
 
@@ -196,24 +195,6 @@ namespace MyGameAP {
                 }
 
                 Log.Logger.Debug($"Adding {name}");
-            }
-
-            else if (category == "Kick") {
-                progKick =+ quantity;
-                if(progKick == 1) {
-                    var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == 27);
-                    if (itemToReceive != null) {
-                        Log.Logger.Debug($"New Kick State: {itemToReceive.Name} ({itemToReceive.Id})");
-                        AddItem(itemToReceive.Name,itemToReceive.Category,itemToReceive.Address,itemToReceive.SaveAddress,itemToReceive.AddressBit);
-                    }
-                }
-                else if (progKick == 2) {
-                    var itemToReceive = guacameleeItems.FirstOrDefault(x => x.Id == 28);
-                    if (itemToReceive != null) {
-                        Log.Logger.Debug($"New Kick State: {itemToReceive.Name} ({itemToReceive.Id})");
-                        AddItem(itemToReceive.Name,itemToReceive.Category,itemToReceive.Address,itemToReceive.SaveAddress,itemToReceive.AddressBit);
-                    }
-                }
             }
 
             else if (category == "Save") {

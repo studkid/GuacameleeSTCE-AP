@@ -22,19 +22,35 @@ class GuacWorld(World):
     """
     game = "Guacamelee Super Turbo Champioship Edition"
     options_dataclass = GuacOptions
+    options: GuacOptions
     topology_present = False
 
-    item_name_to_id = {item.name: (base_id + index) for index, item in enumerate(item_table)}
+    item_name_to_id = {item.name: (item.id) for index, item in enumerate(item_table)}
     location_name_to_id = {loc.area + ": " + loc.name: (loc.id) for index, loc in enumerate(location_table)}
 
-    required_client_version = (0, 5, 0)
+    required_client_version = (0, 6, 0)
 
     def create_items(self):
         itempool: List[str] = []
+        orb_count = 6
+
+        if self.options.shuffle_orbs:
+            orb_count = self.options.available_orbs
 
         for item in item_table:
             count = item.count
 
+            if item.name == "Orb":
+                count = orb_count
+
+            if item.category == "Attack" and not self.options.shuffle_attacks:
+                continue
+
+            if item.category == "Dodge" and not self.options.shuffle_dodge:
+                continue
+
+            if count <= 0:
+                continue
             for _ in range(count):
                 itempool.append(self.create_item(item.name))
 
@@ -43,6 +59,9 @@ class GuacWorld(World):
             itempool.append(self.create_item("500 Gold Coins"))
 
         self.multiworld.itempool += itempool
+
+    def get_filler_item_name(self):
+        return "500 Gold Coins"
 
     def create_item(self, name):
         item_id: int = self.item_name_to_id[name]

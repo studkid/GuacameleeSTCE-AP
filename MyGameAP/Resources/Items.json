@@ -176,7 +176,7 @@
     "Category": "Simple"
   },
   {
-    "Name": "3 Punch Combo",
+    "Name": "Punch Combo",
     "Id": 23,
     "Address": "0xA783",
     "SaveAddress": "0x220",
@@ -200,24 +200,8 @@
     "Category": "Power"
   },
   {
-    "Name": "Progressive Kick",
+    "Name": "Air Kick Combo",
     "Id": 26,
-    "Address": "0",
-    "SaveAddress": "0",
-    "AddressBit": 0,
-    "Category": "Kick"
-  },
-  {
-    "Name": "Luchador Kick",
-    "Id": 27,
-    "Address": "0x1D83",
-    "SaveAddress": "0x190",
-    "AddressBit": 0,
-    "Category": "Power"
-  },
-  {
-    "Name": "3 Kick Combo",
-    "Id": 28,
     "Address": "0x400",
     "SaveAddress": "0x230",
     "AddressBit": 0,
