@@ -170,6 +170,17 @@ namespace MyGameAP {
             return result;
         }
 
+        // [[game.exe + 0051F710] + 18] + 4
+        public static uint GetStoryAddress() {
+            uint baseAddress = 0x00400000;
+            uint initialAddress = baseAddress + 0x0051F710;
+
+            var pointer1 = Memory.ReadUInt(initialAddress);
+            var pointer2 = Memory.ReadUInt(pointer1 + 0x0B00);
+            var result = pointer2 + 0x18;
+            return result;
+        }
+
         public async static Task InGame() {
             string curMap = Memory.ReadString(GetMapAddress(),99);
             int index = curMap.IndexOf("level.bin");
@@ -177,15 +188,44 @@ namespace MyGameAP {
             Log.Logger.Debug($"Current Map: {curMap}");
             string[] values = ["FrontEnd_STCE.level.bin","CutScene_Mask.level.bin","CutScene_JuanJailDream.level.bin","CutScene_Xtabay.level.bin","CutScene_Final.level.bin","CutScene_FinalAllTreasure.level.bin",
                                "shScreen.level.bin","Intro_StartScreen_STCE.level.bin","CutScene_PDDeath.level.bin","CutScene_Credits.level.bin","CutScene_CreditsAllTreasure.level.bin"];
-            while(values.Contains(curMap)) {
-                Log.Logger.Information("Waiting until in game");
-                Log.Logger.Debug($"Current Map: {curMap}");
+            int loops = 10;
+            while (values.Contains(curMap)) {
+                if (loops == 200) {
+                    Log.Logger.Information("Waiting until in game...");
+                    Log.Logger.Debug($"Current Map: {curMap}");
+                    loops = 0;
+                }
                 await Task.Delay(500);
                 curMap = Memory.ReadString(GetMapAddress(),99);
                 index = curMap.IndexOf("level.bin");
                 curMap = curMap.Substring(0,index + 9);
-            }
 
+                loops++;
+            }
+        }
+
+        public async static Task WaitChurchSaved() {
+            uint baseAddress = 0x00400000;
+            uint initialAddress = baseAddress + 0x0051F710;
+
+            var pointer1 = Memory.ReadUInt(initialAddress);
+            var pointer2 = Memory.ReadUInt(pointer1 + 0x0BB0);
+            var result = pointer2 + 0x18;
+            int loops = 10;
+
+            while (Memory.ReadFloat(result) < 5) {
+                if (loops == 200) {
+                    Log.Logger.Information("Waiting until church is saved...");
+                    Log.Logger.Debug($"Church Saved: {Memory.ReadFloat(result)}");
+                    loops = 0;
+                }
+                await Task.Delay(500);
+                pointer1 = Memory.ReadUInt(initialAddress);
+                pointer2 = Memory.ReadUInt(pointer1 + 0x0BB0);
+                result = pointer2 + 0x18;
+
+                loops++;
+            }
         }
     }
 }

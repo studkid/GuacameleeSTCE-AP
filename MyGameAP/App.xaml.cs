@@ -68,6 +68,7 @@ namespace MyGameAP {
 
             Client = new ArchipelagoClient(client);
             await Helpers.InGame();
+            await Helpers.WaitChurchSaved();
 
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
