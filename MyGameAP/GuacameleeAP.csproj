@@ -53,6 +53,7 @@
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\Items.json" />
       <EmbeddedResource Include="Resources\Chests.json" />
+	  <EmbeddedResource Include="Resources\Orbs.json" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -67,7 +67,7 @@
     "Name": "Double Jump",
     "Id": 9,
     "Address": "0x511654",
-    "SaveAddress": "0",
+    "SaveAddress": "0x40",
     "AddressBit": 1,
     "Category": "Simple"
   },
@@ -96,7 +96,7 @@
     "Category": "Power"
   },
   {
-    "Name": "Pollo Fly",
+    "Name": "Pollo Flight",
     "Id": 13,
     "Address": "0",
     "SaveAddress": "0x690",
@@ -133,7 +133,7 @@
     "Address": "0x400",
     "SaveAddress": "0",
     "AddressBit": 0,
-    "Category": "Save"
+    "Category": "Orb"
   },
   {
     "Name": "500 Gold Coins",

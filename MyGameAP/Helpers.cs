@@ -169,5 +169,23 @@ namespace MyGameAP {
             var result = pointer2 + 0x4;
             return result;
         }
+
+        public async static Task InGame() {
+            string curMap = Memory.ReadString(GetMapAddress(),99);
+            int index = curMap.IndexOf("level.bin");
+            curMap = curMap.Substring(0,index + 9);
+            Log.Logger.Debug($"Current Map: {curMap}");
+            string[] values = ["FrontEnd_STCE.level.bin","CutScene_Mask.level.bin","CutScene_JuanJailDream.level.bin","CutScene_Xtabay.level.bin","CutScene_Final.level.bin","CutScene_FinalAllTreasure.level.bin",
+                               "shScreen.level.bin","Intro_StartScreen_STCE.level.bin","CutScene_PDDeath.level.bin","CutScene_Credits.level.bin","CutScene_CreditsAllTreasure.level.bin"];
+            while(values.Contains(curMap)) {
+                Log.Logger.Information("Waiting until in game");
+                Log.Logger.Debug($"Current Map: {curMap}");
+                await Task.Delay(500);
+                curMap = Memory.ReadString(GetMapAddress(),99);
+                index = curMap.IndexOf("level.bin");
+                curMap = curMap.Substring(0,index + 9);
+            }
+
+        }
     }
 }

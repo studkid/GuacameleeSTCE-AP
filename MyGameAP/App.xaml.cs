@@ -27,6 +27,7 @@ namespace MyGameAP {
         private static float healthChunks = 0;
         private static float staminaChunks = 0;
         private static float intensoChunks = 0;
+        private static float orbCount = 0;
 
         private static string currentMap = "";
 
@@ -45,7 +46,7 @@ namespace MyGameAP {
         private async void Context_ConnectClicked(object? sender, ConnectClickedEventArgs e) {
             Context.ConnectButtonEnabled = false;
             Log.Logger.Information("Connecting...");
-            if (Client != null)  {
+            if (Client != null) {
                 Client.Connected -= OnConnected;
                 Client.Disconnected -= OnDisconnected;
                 Client.ItemReceived -= Client_ItemReceived;
@@ -66,6 +67,7 @@ namespace MyGameAP {
             }
 
             Client = new ArchipelagoClient(client);
+            await Helpers.InGame();
 
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
@@ -97,17 +99,21 @@ namespace MyGameAP {
 
             Context.ConnectButtonEnabled = true;
 
-            //foreach(Item item in Client.GameState.ReceivedItems) {
-            //    var itemToAdd = guacameleeItems[(int)item.Id - 1];
-            //    if(itemToAdd.Category != "Money" && itemToAdd.Category != "Enemy Trap") {
-            //        AddItem(itemToAdd.Name, itemToAdd.Category, itemToAdd.Address, itemToAdd.SaveAddress, itemToAdd.AddressBit, item.Quantity);
-            //    }
-            //}
+            foreach (Item item in Client.GameState.ReceivedItems) {
+                var itemToAdd = guacameleeItems[(int)item.Id - 1];
+                if (itemToAdd.Category != "Money" || itemToAdd.Category != "Trap") {
+                    AddItem(itemToAdd.Name,itemToAdd.Category,itemToAdd.Address,itemToAdd.SaveAddress,itemToAdd.AddressBit,item.Quantity);
+                }
+            }
 
             //Enable stamina bar
-            Memory.WriteBit(Helpers.GetSaveDataFlag(0x0020), 0, true);
+            Memory.WriteBit(Helpers.GetSaveDataFlag(0x0020),0,true);
 
             //await Memory.MonitorAddressForAction<String>(Helpers.GetMapAddress(), () => OnMapChange(), (map) => Memory.ReadString(Helpers.GetMapAddress(),999) != currentMap);
+        }
+
+        private static void startAP() {
+
         }
 
         private void _deathlinkService_OnDeathLinkReceived(DeathLink deathLink) {
@@ -129,6 +135,7 @@ namespace MyGameAP {
             if(category == "Simple") {
                 var newAddress = baseAddress + address;
                 Memory.WriteBit(newAddress, bit, true);
+                Memory.WriteBit(Helpers.GetSaveDataFlag(address2),0,true);
             }
 
             else if(category == "Health") {
@@ -165,7 +172,7 @@ namespace MyGameAP {
             else if(category == "Power") {
                 Log.Logger.Debug($"Adding {name}");
                 Memory.WriteBit(Helpers.GetPowerFlag(address),bit,true);
-                if (address2 != 0 || name == "Goat Jump") {
+                if (address2 != 0) {
                     Memory.WriteBit(Helpers.GetSaveDataFlag(address2),bit,true);
                 }
 
@@ -195,6 +202,12 @@ namespace MyGameAP {
                 }
 
                 Log.Logger.Debug($"Adding {name}");
+            }
+
+            else if(name == "Orb") {
+                orbCount++;
+                Log.Logger.Debug($"Adding {name}: {orbCount} / 6");
+                Memory.Write(Helpers.GetSaveDataFlag(address),orbCount);
             }
 
             else if (category == "Save") {
@@ -289,6 +302,11 @@ namespace MyGameAP {
                     var curGold = Memory.ReadUInt(baseAddress + address);
                     Memory.Write(baseAddress + address, Math.Max((int)curGold - 5, 0));
                     Log.Logger.Debug($"Removing silver ({curGold} -> {Math.Max((int)curGold - 5, 0)})");
+                }
+
+                else if(category == "Orb") {
+                    Log.Logger.Debug($"Removing Orb: {orbCount} / 6");
+                    Memory.Write(Helpers.GetSaveDataFlag(address),orbCount);
                 }
             }
         }
